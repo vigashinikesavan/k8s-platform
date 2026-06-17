@@ -1,0 +1,23 @@
+# Credentials and private keys
+*.pem
+*.key
+*.p12
+*.kubeconfig
+kubeconfig
+.env
+secrets/
+
+# Kubernetes secrets with real values
+*-secret.yaml
+*-secret.yml
+
+# Terraform state
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Local files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
