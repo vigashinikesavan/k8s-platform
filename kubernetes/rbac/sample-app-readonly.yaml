@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sample-app-readonly
+  namespace: sample-app
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: sample-app-readonly
+  namespace: sample-app
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "endpoints"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["networking.k8s.io"]
+    resources: ["ingresses"]
+    verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: sample-app-readonly
+  namespace: sample-app
+subjects:
+  - kind: ServiceAccount
+    name: sample-app-readonly
+    namespace: sample-app
+roleRef:
+  kind: Role
+  name: sample-app-readonly
+  apiGroup: rbac.authorization.k8s.io

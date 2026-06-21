@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: basic-platform-alerts
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  groups:
+    - name: basic-platform.rules
+      rules:
+        - alert: KubernetesNodeNotReady
+          expr: kube_node_status_condition{condition="Ready",status="true"} == 0
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Kubernetes node is not ready"
+            description: "Node {{ $labels.node }} has been NotReady for more than 2 minutes."
+
+        - alert: SampleAppReplicasUnavailable
+          expr: kube_deployment_status_replicas_available{namespace="sample-app", deployment="hello-app"} < 1
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Sample application has no available replicas"
+            description: "The hello-app deployment has fewer than one available replica for more than 2 minutes."
