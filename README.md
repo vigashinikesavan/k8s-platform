@@ -11,6 +11,9 @@ Small Kubernetes platform on Verda Cloud for a Junior / Mid-Level Platform Engin
 * cert-manager with Let's Encrypt TLS
 * Sample application exposed externally over HTTPS
 * Prometheus and Grafana monitoring stack
+* Basic Prometheus alert for sample application availability
+* Basic read-only RBAC example
+* Backup and restore notes
 
 ## Cluster
 
@@ -21,13 +24,16 @@ Small Kubernetes platform on Verda Cloud for a Junior / Mid-Level Platform Engin
 
 ## Repository layout
 
-| Path                       | Purpose                                             |
-| -------------------------- | --------------------------------------------------- |
-| `kubernetes/sample-app/`   | Sample application Deployment, Service, and Ingress |
-| `kubernetes/cert-manager/` | Let's Encrypt ClusterIssuers                        |
-| `kubernetes/monitoring/`   | Monitoring Helm values                              |
-| `scripts/`                 | Installation scripts                                |
-| `docs/`                    | Architecture, operations notes, and screenshots     |
+| Path                             | Purpose                                             |
+| -------------------------------- | --------------------------------------------------- |
+| `kubernetes/sample-app/`         | Sample application Deployment, Service, and Ingress |
+| `kubernetes/cert-manager/`       | Let's Encrypt ClusterIssuers                        |
+| `kubernetes/monitoring/`         | Monitoring Helm values                              |
+| `kubernetes/monitoring/alerts/`  | Basic Prometheus alert rules                        |
+| `kubernetes/rbac/`               | Basic read-only RBAC example                        |
+| `scripts/`                       | Installation scripts                                |
+| `docs/`                          | Architecture, operations notes, backup notes, and   |
+|                                  | screenshots                                         |
 
 ## Deployment commands
 
