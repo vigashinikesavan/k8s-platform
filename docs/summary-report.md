@@ -44,6 +44,20 @@ The core platform components were successfully installed and verified:
 * A sample application availability alert was tested by scaling the app to zero replicas. Prometheus showed the alert as firing, and the alert cleared after restoring the deployment.
 * A read-only ServiceAccount was created for the `sample-app` namespace. It can list pods but cannot delete them.
 
+## Bonus items completed
+
+Several extra platform items were also completed:
+
+* HTTPS ingress using cert-manager and Let's Encrypt
+* Prometheus and Grafana monitoring
+* Grafana dashboard screenshots
+* Basic Prometheus alert rule
+* Read-only RBAC example
+* Backup and restore notes
+* Security-focused `.gitignore` patterns
+
+Grafana is not publicly exposed. It is accessed using `kubectl port-forward`.
+
 ## What did not work or limitations
 
 A few issues and tradeoffs came up during the setup:
@@ -64,6 +78,8 @@ Current limitations:
 UFW is enabled on both nodes. Kubernetes internal ports are restricted between the control-plane and worker node where possible.
 
 Secrets and credentials are not committed to the repository. This includes SSH private keys, kubeconfig files, k3s node tokens, Grafana passwords, Kubernetes Secret values, and generated TLS Secrets.
+
+The sample app uses an `sslip.io` hostname that includes the public IP address so the HTTPS ingress can be tested as a live demo. This is an infrastructure exposure tradeoff for the assignment, not a credential leak.
 
 Grafana is accessed through port-forwarding instead of being exposed directly to the internet.
 

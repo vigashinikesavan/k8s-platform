@@ -15,6 +15,15 @@ Small Kubernetes platform on Verda Cloud for a Junior / Mid-Level Platform Engin
 * Basic read-only RBAC example
 * Backup and restore notes
 
+## Bonus items completed
+
+* HTTPS ingress with cert-manager and Let's Encrypt
+* Prometheus and Grafana monitoring
+* Grafana screenshots under `docs/screenshots/`
+* Basic Prometheus alert rule
+* Read-only RBAC example
+* Backup and restore notes
+
 ## Cluster
 
 | Node            | Role              | Size               | OS           |
@@ -64,9 +73,13 @@ The sample application is exposed through HTTPS:
 https://hello.<control-plane-public-ip>.sslip.io
 ```
 
+The live demo endpoint uses `sslip.io` and includes the control-plane public IP as a practical demo hostname.
+
 Grafana is accessed through port-forwarding and is not exposed publicly.
 
 ## Security note
 
 Secrets, kubeconfig files, SSH private keys, k3s node tokens, Grafana passwords, and generated TLS Secrets are not committed to this repository.
+
+The `.gitignore` includes patterns for kubeconfigs, node tokens, private keys, env files, Terraform variable files, and crash logs.
 
