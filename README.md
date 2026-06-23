@@ -1,6 +1,6 @@
 # k8s-platform
 
-Small Kubernetes platform on Verda Cloud for a Junior / Mid-Level Platform Engineer take-home assignment.
+Small Kubernetes platform on Verda Cloud.
 
 ## What was built
 
