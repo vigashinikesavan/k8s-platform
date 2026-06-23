@@ -60,11 +60,4 @@ If the cluster is rebuilt, cert-manager can request new certificates from Let's 
 
 Prometheus data is useful for troubleshooting but is not treated as critical application data in this assignment. In production, Prometheus retention, persistent storage, and remote write should be considered.
 
-## Improvements for production
-
-* Enable scheduled k3s datastore snapshots
-* Store backups outside the cluster
-* Test restore regularly
-* Use persistent storage for monitoring data
-* Document recovery time and recovery point objectives
 
