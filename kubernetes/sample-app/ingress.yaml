@@ -9,10 +9,10 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - hello.65.108.33.80.sslip.io
+        - hello.<CONTROL-PLANE-IP>.sslip.io
       secretName: hello-app-production-tls
   rules:
-    - host: hello.65.108.33.80.sslip.io
+    - host: hello.<CONTROL-PLANE-IP>.sslip.io
       http:
         paths:
           - path: /
